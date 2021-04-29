@@ -19,11 +19,9 @@ import luna.joel.myfeelings.R
     constructor(context: Context, emociones: ArrayList<Emociones>){
 
         this.context=context
-        grosorMetrica = 10
-        grosorFondo = 15
-        this.emociones = emociones
-
         grosorMetrica = context.resources.getDimensionPixelSize(R.dimen.graphWith)
+        grosorFondo = context.resources.getDimensionPixelSize(R.dimen.graphBackground)
+        this.emociones = emociones
     }
 
     override fun draw(p0: Canvas){

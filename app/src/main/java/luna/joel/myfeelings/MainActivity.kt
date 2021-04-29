@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
             graphSad.background = CustomBarDrawable(this, Emociones("Triste", 0.0f, R.color.blue, sad))
             graphVerySad.background = CustomBarDrawable(this, Emociones("Muy triste", 0.0f, R.color.deepBlue, verysad))
         }else{
-            actualizarGrafica()
             iconoMayoria()
+            actualizarGrafica()
         }
 
         guardarbutton.setOnClickListener {
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     val nombre = jsonArray.getJSONObject(i).getString("nombre")
                     val porcentaje = jsonArray.getJSONObject(i).getDouble("porcentaje").toFloat()
-                    var color = jsonArray.getJSONObject(i).getInt("color")
+                    val color = jsonArray.getJSONObject(i).getInt("color")
                     val total = jsonArray.getJSONObject(i).getDouble("total").toFloat()
                     var emocion = Emociones(nombre, porcentaje, color, total)
                     lista.add(emocion)
@@ -141,19 +141,19 @@ class MainActivity : AppCompatActivity() {
             Log.d("porcentajes", "very sad"+ pVS)
 
             lista.clear()
-            lista.add(Emociones("Muy feliz", pVH, R.color.mustard,veryHappy))
-            lista.add(Emociones("Feliz", pH, R.color.mustard,happy))
-            lista.add(Emociones("Neutral", pN, R.color.mustard,neutral))
-            lista.add(Emociones("Triste", pS, R.color.mustard,sad))
-            lista.add(Emociones("Muy triste", pVS, R.color.mustard,verysad))
+            lista.add(Emociones("Muy feliz", pVH, R.color.mustard, veryHappy))
+            lista.add(Emociones("Feliz", pH, R.color.orange, happy))
+            lista.add(Emociones("Neutral", pN, R.color.greenie, neutral))
+            lista.add(Emociones("Triste", pS, R.color.blue, sad))
+            lista.add(Emociones("Muy triste", pVS, R.color.deepBlue, verysad))
 
             val fondo = CustomCircleDrawable(this, lista)
 
             graphVeryHappy.background = CustomBarDrawable(this, Emociones ("Muy feliz", pVH, R.color.mustard, veryHappy))
-            graphHappy.background = CustomBarDrawable(this, Emociones ("Feliz", pVH, R.color.mustard, happy))
-            graphNeutral.background = CustomBarDrawable(this, Emociones ("Neutral", pVH, R.color.mustard, neutral))
-            graphSad.background = CustomBarDrawable(this, Emociones ("Triste", pVH, R.color.mustard, sad))
-            graphVerySad.background = CustomBarDrawable(this, Emociones ("Muy triste", pVH, R.color.mustard, verysad))
+            graphHappy.background = CustomBarDrawable(this, Emociones ("Feliz", pH, R.color.orange, happy))
+            graphNeutral.background = CustomBarDrawable(this, Emociones ("Neutral", pN, R.color.greenie, neutral))
+            graphSad.background = CustomBarDrawable(this, Emociones ("Triste", pS, R.color.blue, sad))
+            graphVerySad.background = CustomBarDrawable(this, Emociones ("Muy triste", pVS, R.color.deepBlue, verysad))
 
             graph.background = fondo
 
